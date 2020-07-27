@@ -6,8 +6,8 @@
   "scripts": {
     "build": "npm run build:css && webpack",
     "start": "npm run watch:css && webpack-dev-server --open",
-    "build:css": "postcss src/styles/_tailwind.scss -o src/styles/main.scss",
-    "watch:css": "postcss src/styles/_tailwind.scss -o src/styles/main.scss"
+    "build:css": "postcss src/styles/tailwind.css -o src/styles/main.css",
+    "watch:css": "postcss src/styles/tailwind.css -o src/styles/main.css --watch"
   },
   "keywords": [],
   "author": "",
