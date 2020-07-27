@@ -1,0 +1,118 @@
+@tailwind base;
+
+@tailwind components;
+
+/* Navbar Start */
+
+.nav-item {
+  @apply py-2 px-0 block border-b-2 text-white border-transparent;
+}
+
+.nav-item:hover {
+  @apply border-white;
+}
+
+/* Navbar End */
+
+/* Header Start */
+.cta {
+  @apply px-8 py-2 whitespace-no-wrap rounded-full bg-theme_red-100 text-white cursor-pointer no-underline text-xs font-light;
+}
+/* Header End */
+
+/* About Start */
+
+.about-item {
+  @apply w-full h-56 px-4 flex items-center;
+}
+
+.about-item__logo-container {
+  @apply w-20 h-20 rounded-full flex justify-center items-center relative;
+}
+
+.about-item__logo-svg {
+  @apply text-3xl;
+}
+
+.about-item__content-container {
+  @apply flex flex-col pl-8 py-0 items-start h-20;
+}
+
+.about-item__content-container h1 {
+  @apply text-2xl m-0;
+}
+
+.about-item__content-container p {
+  @apply font-light text-xs mt-2;
+}
+
+/* About End */
+
+@screen lg {
+  /* Navbar Start */
+  .nav-item {
+    @apply .pt-2 .px-8;
+  }
+
+  .about-item__logo-svg {
+    @apply text-6xl;
+  }
+  /* Navbar End */
+
+  /* Header Start */
+
+  /* .cta {
+    @apply px-8 py-2 rounded-full bg-theme_red-100 text-white cursor-pointer no-underline text-xs font-light;
+  } */
+
+  /* Header End */
+
+  /* About Start */
+
+  .about-item {
+    @apply px-48;
+  }
+
+  .about-item__logo-container {
+    @apply w-32 h-32;
+  }
+
+  .about-item__content-container {
+    @apply pl-20 h-32;
+  }
+  .about-item__content-container h1 {
+    @apply text-3xl;
+  }
+
+  .about-item__content-container p {
+    @apply mt-6;
+  }
+
+  /* About End */
+}
+
+@screen md {
+  /* About Start */
+  .about-item {
+    @apply px-24;
+  }
+
+  .about-item__logo-container {
+    @apply h-24 w-24;
+  }
+
+  .about-item__logo-svg {
+    @apply text-5xl;
+  }
+
+  .about-item__content-container {
+    @apply pl-16;
+  }
+
+  .about-item__content-container p {
+    @apply text-sm mt-4;
+  }
+  /* About End */
+}
+
+@tailwind utilities;
