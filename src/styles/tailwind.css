@@ -2,6 +2,18 @@
 
 @tailwind components;
 
+body {
+  scroll-behavior: smooth;
+}
+
+/* Global Start */
+.section-heading {
+  transform: translateX(-50%);
+  @apply font-bold text-white text-3xl absolute left-1/2;
+}
+
+/* Global End */
+
 /* Navbar Start */
 
 .nav-item {
@@ -49,14 +61,16 @@
 /* About End */
 
 @screen lg {
+  /* Global Start */
+  .section-heading {
+    @apply right-40 text-6xl;
+  }
+  /* Global End */
   /* Navbar Start */
   .nav-item {
     @apply .pt-2 .px-8;
   }
 
-  .about-item__logo-svg {
-    @apply text-6xl;
-  }
   /* Navbar End */
 
   /* Header Start */
@@ -70,7 +84,11 @@
   /* About Start */
 
   .about-item {
-    @apply px-48;
+    @apply px-40;
+  }
+
+  .about-item__logo-svg {
+    @apply text-6xl;
   }
 
   .about-item__logo-container {
@@ -92,6 +110,13 @@
 }
 
 @screen md {
+  /* Global Start */
+  .section-heading {
+    transform: translateX(0%);
+    @apply left-auto right-28 text-5xl;
+  }
+  /* Global End */
+
   /* About Start */
   .about-item {
     @apply px-24;

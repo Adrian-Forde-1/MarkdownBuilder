@@ -151,6 +151,8 @@ module.exports = {
       '48': '12rem',
       '56': '14rem',
       '64': '16rem',
+      '80': '20rem',
+      '96': '24rem',
       '128': '32rem',
     },
     backgroundColor: (theme) => theme('colors'),
@@ -295,7 +297,6 @@ module.exports = {
     inset: {
       '0': '0',
       '1/2': '50%',
-      full: '100%',
       '28': '7rem',
       '40': '10rem',
       auto: 'auto',

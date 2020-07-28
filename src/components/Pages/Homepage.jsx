@@ -1,4 +1,6 @@
-import React from 'react';
+import React, { useEffect } from 'react';
+import { gsap } from 'gsap';
+import { ScrollTrigger } from 'gsap/ScrollTrigger';
 
 //React Router DOM
 import { Link } from 'react-router-dom';
@@ -7,6 +9,20 @@ import { Link } from 'react-router-dom';
 import wordsBackgroundNormal from '../../resources/img/words-picture-normal.jpg';
 
 const Homepage = () => {
+  useEffect(() => {
+    const aboutSectionHeading = document.querySelector('#about-heading');
+    gsap.registerPlugin(ScrollTrigger);
+    gsap.to(aboutSectionHeading, {
+      scrollTrigger: {
+        trigger: aboutSectionHeading,
+        start: 'top center',
+        toggleActions: 'play restart resume reverse',
+      },
+      duration: 0.7,
+      opacity: 1,
+    });
+  }, []);
+
   return (
     <div>
       <header className="w-full h-screen bg-black relative flex justify-center items-center">
@@ -29,7 +45,7 @@ const Homepage = () => {
           <p className="text-white text-xs md:text-sm lg:text-lg text-center">
             Don’t Know Markdown? Not a Problem
           </p>
-          <div className="flex justify-center mt-6 items-center px-24">
+          <div className="flex justify-center mt-6 items-center w-auto">
             <Link to="/" className="cta mr-2 lg:mr-4">
               Learn More
             </Link>
@@ -40,7 +56,7 @@ const Homepage = () => {
         </div>
         <a
           href="#about"
-          className="w-10 h-10 mt-128 bg-theme_red-100 rounded-full mx-auto flex justify-center items-center no-underline z-10"
+          className="w-10 h-10 md:mt-128 mt-96 bg-theme_red-100 rounded-full mx-auto flex justify-center items-center no-underline z-10"
         >
           <svg
             width="1em"
@@ -61,20 +77,25 @@ const Homepage = () => {
           </svg>
         </a>
       </header>
-      <section className="w-full h-screen relative">
-        <h1
-          className="font-bold text-white text-5xl absolute right-1/2 -translate-x-1/2 md:translate-x-0 md:right-28 lg:right-40"
+      <section className="w-full h-screen relative" id="about">
+        <div
+          className="section-heading"
           style={{
-            right: '100px',
-            top: '-75px',
-            letterSpacing: '30px',
-            transform: 'translateY(50%)',
             zIndex: '99',
           }}
         >
-          ABOUT
-        </h1>
-        <div className="bg-theme_red-100 about-item">
+          <h1
+            className="relative opacity-0 -translate-y-1/2"
+            id="about-heading"
+            style={{
+              top: '-50%',
+              letterSpacing: '30px',
+            }}
+          >
+            ABOU<span style={{ letterSpacing: '0px' }}>T</span>
+          </h1>
+        </div>
+        <div className="bg-theme_red-100 about-item lg:px-40">
           <div className="bg-white about-item__logo-container">
             <svg
               xmlns="http://www.w3.org/2000/svg"
@@ -97,7 +118,7 @@ const Homepage = () => {
             <p>Create the perfect markdown in a short period of time.</p>
           </div>
         </div>
-        <div className="bg-white about-item">
+        <div className="bg-white about-item lg:px-40">
           <div className="bg-theme_red-100 about-item__logo-container">
             <svg
               width="1em"
@@ -134,7 +155,7 @@ const Homepage = () => {
             </p>
           </div>
         </div>
-        <div className="bg-theme_red-100 about-item">
+        <div className="bg-theme_red-100 about-item lg:px-40">
           <div className="bg-white about-item__logo-container">
             <svg
               xmlns="http://www.w3.org/2000/svg"
