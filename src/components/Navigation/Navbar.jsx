@@ -7,13 +7,11 @@ import '../../styles/navbar.css';
 import { Link } from 'react-router-dom';
 
 const Navbar = () => {
-  window.addEventListener('scroll', (e) => {
-    if (window.pageYOffset <= 0) {
-      document.querySelector('#navbar').style.background = '#9E2A2B';
-    } else {
-      document.querySelector('#navbar').style.background = '#1e1e1e';
-    }
-  });
+  // window.addEventListener('scroll', (e) => {
+  //   document
+  //     .querySelector('#navbar')
+  //     .classList.toggle('sticky', window.scrollY > 0);
+  // });
   return (
     <div
       className="navbar w-full ease-out bg-theme_red-100 lg:px-40 px-12 lg:py-0 py-2 flex flex-wrap items-center fixed inset-x-0 top-0"
@@ -47,14 +45,18 @@ const Navbar = () => {
         <nav>
           <ul className="lg:flex items-center justify-between text-base pt-4 lg:pt-0">
             <li>
-              <Link to="#" className="nav-item" style={{ fontWeight: '300' }}>
+              <a href="#" className="nav-item" style={{ fontWeight: '300' }}>
                 Home
-              </Link>
+              </a>
             </li>
             <li>
-              <Link to="#" className="nav-item" style={{ fontWeight: '300' }}>
+              <a
+                href="#about"
+                className="nav-item"
+                style={{ fontWeight: '300' }}
+              >
                 About
-              </Link>
+              </a>
             </li>
           </ul>
         </nav>

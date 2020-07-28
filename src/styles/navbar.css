@@ -1,4 +1,8 @@
 #menu-toggle:checked + #menu {
   display: block;
 }
+
+#menu-toggle.sticky {
+  background: #1e1e1e;
+}
 /*# sourceMappingURL=navbar.css.map */

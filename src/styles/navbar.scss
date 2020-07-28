@@ -2,4 +2,8 @@
   &:checked + #menu {
     display: block;
   }
+
+  &.sticky {
+    background: #1e1e1e;
+  }
 }
