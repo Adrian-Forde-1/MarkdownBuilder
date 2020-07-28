@@ -85,10 +85,11 @@ const Homepage = () => {
           }}
         >
           <h1
-            className="relative opacity-0 -translate-y-1/2"
+            className="relative opacity-0 "
             id="about-heading"
             style={{
               top: '-50%',
+              transform: 'translateY(-50%)',
               letterSpacing: '30px',
             }}
           >
@@ -155,7 +156,7 @@ const Homepage = () => {
             </p>
           </div>
         </div>
-        <div className="bg-theme_red-100 about-item lg:px-40">
+        <div className="bg-theme_red-100 about-item md:flex-row lg:px-40">
           <div className="bg-white about-item__logo-container">
             <svg
               xmlns="http://www.w3.org/2000/svg"

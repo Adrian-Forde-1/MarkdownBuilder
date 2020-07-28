@@ -28,14 +28,14 @@ body {
 
 /* Header Start */
 .cta {
-  @apply px-8 py-2 whitespace-no-wrap rounded-full bg-theme_red-100 text-white cursor-pointer no-underline text-xs font-light;
+  @apply px-4 py-2 whitespace-no-wrap rounded-full bg-theme_red-100 text-white cursor-pointer no-underline text-xs font-light;
 }
 /* Header End */
 
 /* About Start */
 
 .about-item {
-  @apply w-full h-56 px-4 flex items-center;
+  @apply w-full h-56 px-4 justify-center flex flex-col items-center;
 }
 
 .about-item__logo-container {
@@ -47,7 +47,7 @@ body {
 }
 
 .about-item__content-container {
-  @apply flex flex-col pl-8 py-0 items-start h-20;
+  @apply flex flex-col mt-2 items-center py-0 h-auto min-h-20;
 }
 
 .about-item__content-container h1 {
@@ -96,7 +96,7 @@ body {
   }
 
   .about-item__content-container {
-    @apply pl-20 h-32;
+    @apply ml-20 h-32;
   }
   .about-item__content-container h1 {
     @apply text-3xl;
@@ -117,9 +117,15 @@ body {
   }
   /* Global End */
 
+  /* Header Start */
+  .cta {
+    @apply px-8 py-2;
+  }
+  /* Header End */
+
   /* About Start */
   .about-item {
-    @apply px-24;
+    @apply px-24 flex-row justify-start;
   }
 
   .about-item__logo-container {
@@ -131,7 +137,7 @@ body {
   }
 
   .about-item__content-container {
-    @apply pl-16;
+    @apply ml-16 items-start mt-0;
   }
 
   .about-item__content-container p {
