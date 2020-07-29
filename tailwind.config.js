@@ -20,6 +20,12 @@ module.exports = {
       theme_red: {
         100: '#9E2A2B',
       },
+      theme_black: {
+        100: '#202124',
+        200: '#1e1e1e',
+        300: '#181818',
+        400: '#111111',
+      },
       gray: {
         100: '#f7fafc',
         200: '#edf2f7',
@@ -264,6 +270,7 @@ module.exports = {
         '"Courier New"',
         'monospace',
       ],
+      roboto: ['Roboto', 'sans-serif'],
     },
     fontSize: {
       xs: '0.75rem',
@@ -308,6 +315,9 @@ module.exports = {
       wide: '0.025em',
       wider: '0.05em',
       widest: '0.1em',
+      extra1: '1rem',
+      extra2: '2rem',
+      extra3: '3rem',
     },
     lineHeight: {
       none: '1',
@@ -338,6 +348,7 @@ module.exports = {
     maxHeight: {
       full: '100%',
       screen: '100vh',
+      '0': '0',
     },
     maxWidth: (theme, { breakpoints }) => ({
       none: 'none',
