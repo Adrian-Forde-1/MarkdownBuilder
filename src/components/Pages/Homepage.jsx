@@ -8,13 +8,30 @@ import { Link } from 'react-router-dom';
 //Resources
 import wordsBackgroundNormal from '../../resources/img/words-picture-normal.jpg';
 
+//Components
+import SideNav from '../Navigation/SideNav.jsx';
+
 const Homepage = () => {
+  gsap.registerPlugin(ScrollTrigger);
+
   useEffect(() => {
     const aboutSectionHeading = document.querySelector('#about-heading');
-    gsap.registerPlugin(ScrollTrigger);
+    const learnMoreSectionHeading = document.querySelector(
+      '#learn-more-heading'
+    );
+
     gsap.to(aboutSectionHeading, {
       scrollTrigger: {
         trigger: aboutSectionHeading,
+        start: 'top center',
+        toggleActions: 'play restart resume reverse',
+      },
+      duration: 0.7,
+      opacity: 1,
+    });
+    gsap.to(learnMoreSectionHeading, {
+      scrollTrigger: {
+        trigger: learnMoreSectionHeading,
         start: 'top center',
         toggleActions: 'play restart resume reverse',
       },
@@ -25,6 +42,7 @@ const Homepage = () => {
 
   return (
     <div>
+      <SideNav />
       <header className="w-full h-screen bg-black relative flex justify-center items-center">
         <img
           src={wordsBackgroundNormal}
@@ -46,10 +64,10 @@ const Homepage = () => {
             Don’t Know Markdown? Not a Problem
           </p>
           <div className="flex justify-center mt-6 items-center w-auto">
-            <Link to="/" className="cta mr-2 lg:mr-4">
+            <a href="#learn-more" className="cta mr-2 lg:mr-4">
               Learn More
-            </Link>
-            <Link to="/" className="cta ml-2 lg:ml-4">
+            </a>
+            <Link to="/builder" className="cta ml-2 lg:ml-4">
               Get Started
             </Link>
           </div>
@@ -77,7 +95,7 @@ const Homepage = () => {
           </svg>
         </a>
       </header>
-      <section className="w-full h-screen relative" id="about">
+      <section className="w-full min-h-screen relative" id="about">
         <div
           className="section-heading"
           style={{
@@ -90,7 +108,6 @@ const Homepage = () => {
             style={{
               top: '-50%',
               transform: 'translateY(-50%)',
-              letterSpacing: '30px',
             }}
           >
             ABOU<span style={{ letterSpacing: '0px' }}>T</span>
@@ -180,6 +197,26 @@ const Homepage = () => {
               effective design.
             </p>
           </div>
+        </div>
+      </section>
+      <section className="w-full h-screen relative" id="learn-more">
+        <div
+          className="section-heading"
+          style={{
+            zIndex: '99',
+          }}
+        >
+          <h1
+            className="relative opacity-0 text-theme_black-100 tracking-widest md:tracking-extra"
+            id="learn-more-heading"
+            style={{
+              top: '-50%',
+              transform: 'translateY(-50%)',
+            }}
+          >
+            LEAR<span style={{ letterSpacing: '0px' }}>N</span> MOR
+            <span style={{ letterSpacing: '0px' }}>E</span>
+          </h1>
         </div>
       </section>
     </div>
