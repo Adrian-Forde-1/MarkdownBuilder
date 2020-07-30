@@ -1,12 +1,29 @@
 import React from 'react';
+import { v4 as uuidv4 } from 'uuid';
 
 //React Router DOM
 import { withRouter } from 'react-router-dom';
+
+//Redux
+import { connect } from 'react-redux';
+
+//Actions
+import { addBlock } from '../../redux/actions/builderActions';
 
 const SideNav = (props) => {
   const toggleSideNav = () => {
     const sideNav = document.querySelector('#sidenav');
     sideNav.classList.toggle('open');
+  };
+
+  const addBuildingBlock = (type) => {
+    const id = uuidv4();
+    const newBlock = {
+      id,
+      type,
+      value: '',
+    };
+    props.addBlock(newBlock);
   };
   return (
     <div>
@@ -100,12 +117,48 @@ const SideNav = (props) => {
               className="sidenav-item__dropdown smenu"
               style={{ fontWeight: '100' }}
             >
-              <button>H1</button>
-              <button>H2</button>
-              <button>H3</button>
-              <button>H4</button>
-              <button>H5</button>
-              <button>H6</button>
+              <button
+                onClick={() => {
+                  addBuildingBlock('H1');
+                }}
+              >
+                H1
+              </button>
+              <button
+                onClick={() => {
+                  addBuildingBlock('H2');
+                }}
+              >
+                H2
+              </button>
+              <button
+                onClick={() => {
+                  addBuildingBlock('H3');
+                }}
+              >
+                H3
+              </button>
+              <button
+                onClick={() => {
+                  addBuildingBlock('H4');
+                }}
+              >
+                H4
+              </button>
+              <button
+                onClick={() => {
+                  addBuildingBlock('H5');
+                }}
+              >
+                H5
+              </button>
+              <button
+                onClick={() => {
+                  addBuildingBlock('H6');
+                }}
+              >
+                H6
+              </button>
             </div>
           </li>
           <li className="sidenav-item" id="lists">
@@ -133,24 +186,81 @@ const SideNav = (props) => {
               className="sidenav-item__dropdown smenu"
               style={{ fontWeight: '100' }}
             >
-              <button>Ordered List</button>
-              <button>Unordered List</button>
+              <button
+                onClick={() => {
+                  addBuildingBlock('OL');
+                }}
+              >
+                Ordered List
+              </button>
+              <button
+                onClick={() => {
+                  addBuildingBlock('UOL');
+                }}
+              >
+                Unordered List
+              </button>
             </div>
           </li>
           <li className="sidenav-item">
-            <a href="#blockquote">Blockquote</a>
+            <a
+              href="#text"
+              onClick={() => {
+                addBuildingBlock('Text');
+              }}
+            >
+              Text
+            </a>
           </li>
           <li className="sidenav-item">
-            <a href="#code">Code</a>
+            <a
+              href="#blockquote"
+              onClick={() => {
+                addBuildingBlock('BQ');
+              }}
+            >
+              Blockquote
+            </a>
           </li>
           <li className="sidenav-item">
-            <a href="#horizontalrule">Horizontal Rule</a>
+            <a
+              href="#code"
+              onClick={() => {
+                addBuildingBlock('Code');
+              }}
+            >
+              Code
+            </a>
           </li>
           <li className="sidenav-item">
-            <a href="#link">Link</a>
+            <a
+              href="#horizontalrule"
+              onClick={() => {
+                addBuildingBlock('HR');
+              }}
+            >
+              Horizontal Rule
+            </a>
           </li>
           <li className="sidenav-item">
-            <a href="#image">Image</a>
+            <a
+              href="#link"
+              onClick={() => {
+                addBuildingBlock('Link');
+              }}
+            >
+              Link
+            </a>
+          </li>
+          <li className="sidenav-item">
+            <a
+              href="#image"
+              onClick={() => {
+                addBuildingBlock('Img');
+              }}
+            >
+              Image
+            </a>
           </li>
         </ul>
       </div>
@@ -158,4 +268,8 @@ const SideNav = (props) => {
   );
 };
 
-export default withRouter(SideNav);
+const mapDispatchToProps = {
+  addBlock,
+};
+
+export default connect(null, mapDispatchToProps)(withRouter(SideNav));
