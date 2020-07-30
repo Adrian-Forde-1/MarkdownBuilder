@@ -666,7 +666,7 @@ body {
 
 #sidenav {
   transform: translateX(-100%);
-  transition: 300ms ease-in-out;
+  transition: transform 300ms ease-in-out;
 }
 
 #sidenav.open {
