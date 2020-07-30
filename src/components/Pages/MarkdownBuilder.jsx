@@ -1,13 +1,16 @@
 import React from 'react';
 
+//React Router DOM
+import { Link } from 'react-router-dom';
+
 //Components
 import SideNav from '../Navigation/SideNav.jsx';
 
 const MarkdownBuilder = () => {
   return (
     <div>
-      <h1>Markdown Builder</h1>
       <SideNav />
+      <div></div>
     </div>
   );
 };

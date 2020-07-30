@@ -8,9 +8,6 @@ import { Link } from 'react-router-dom';
 //Resources
 import wordsBackgroundNormal from '../../resources/img/words-picture-normal.jpg';
 
-//Components
-import SideNav from '../Navigation/SideNav.jsx';
-
 const Homepage = () => {
   gsap.registerPlugin(ScrollTrigger);
 
@@ -42,7 +39,6 @@ const Homepage = () => {
 
   return (
     <div>
-      <SideNav />
       <header className="w-full h-screen bg-black relative flex justify-center items-center">
         <img
           src={wordsBackgroundNormal}
