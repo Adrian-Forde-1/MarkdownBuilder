@@ -664,11 +664,22 @@ body {
   border-color: rgba(255, 255, 255, var(--border-opacity));
 }
 
+#sidenav {
+  transform: translateX(-100%);
+  transition: 300ms ease-in-out;
+}
+
+#sidenav.open {
+  transform: translateX(0%);
+}
+
 /* Navbar End */
 
 /* SideNav Start */
 
 .sidenav-item {
+  font-family: 'Roboto', sans-serif;
+  font-weight: 300;
   width: 100%;
   background-color: transparent;
   --text-opacity: 1;
@@ -700,6 +711,7 @@ body {
 }
 
 .sidenav-item__dropdown {
+  transition: max-height 300ms;
   width: 100%;
   --text-opacity: 1;
   color: #fff;
@@ -715,6 +727,8 @@ body {
 }
 
 .sidenav-item__dropdown button {
+  font-family: 'Roboto', sans-serif;
+  font-weight: 300;
   padding-top: 0.5rem;
   padding-bottom: 0.5rem;
   width: 100%;
@@ -722,6 +736,9 @@ body {
   padding-left: 2.5rem;
   text-align: left;
   font-size: 0.875rem;
+  --text-opacity: 1;
+  color: #edf2f7;
+  color: rgba(237, 242, 247, var(--text-opacity));
 }
 
 .sidenav-item__dropdown button:hover {
