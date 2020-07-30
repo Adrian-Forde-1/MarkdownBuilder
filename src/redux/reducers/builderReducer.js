@@ -1,21 +1,31 @@
 //Actions
-import { ADD_BLOCK, REMOVE_BLOCK } from '../actions/types';
+import { ADD_BLOCK, REMOVE_BLOCK, UPDATE_BLOCK } from '../actions/types';
 
 const initialState = {
-  block: [],
+  blocks: [],
 };
 
 const builderReducer = (state = initialState, action) => {
-  switch (action) {
+  switch (action.type) {
     case ADD_BLOCK:
       return {
         ...state,
-        block: block.push(action.payload),
+        blocks: state.blocks.concat(action.payload),
       };
     case REMOVE_BLOCK:
       return {
         ...state,
-        block: block.filter(block.id !== action.payload),
+        blocks: state.blocks.filter(block.id !== action.payload),
+      };
+    case UPDATE_BLOCK:
+      return {
+        ...state,
+        blocks: state.blocks.map((block) => {
+          if (block.id !== action.payload.id) return block;
+          else {
+            return action.payload;
+          }
+        }),
       };
     default:
       return state;
