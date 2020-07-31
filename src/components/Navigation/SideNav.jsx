@@ -43,7 +43,7 @@ const SideNav = (props) => {
     const newBlock = {
       id,
       type,
-      items: [],
+      items: [{ value: '' }],
     };
 
     props.addBlock(newBlock);
