@@ -15,7 +15,7 @@ const builderReducer = (state = initialState, action) => {
     case REMOVE_BLOCK:
       return {
         ...state,
-        blocks: state.blocks.filter(block.id !== action.payload),
+        blocks: state.blocks.filter((block) => block.id !== action.payload),
       };
     case UPDATE_BLOCK:
       return {
