@@ -13,13 +13,27 @@ import {
 import ListBlockItem from './ListBlockItem.jsx';
 
 const ListBlock = (props) => {
+  const updateList = (itemIndex, value) => {
+    const newArray = Object.assign({}, props.block);
+    newArray.items[itemIndex].value = value;
+    props.updateBlock(newArray);
+  };
+
   return (
     <div className="w-full flex justify-center items-start mb-4 pl-4">
       <div className=" px-2 h-8 flex justify-center items-center text-white bg-theme_black-100">
         <span>{props.block.type}</span>
       </div>
       <ul className="flex-1" id={`${props.block.id}-${props.block.type}`}>
-        <ListBlockItem />
+        {props.block.items.map((item, index) => (
+          <ListBlockItem
+            value={item.value}
+            itemIndex={index}
+            updateList={updateList}
+            listItemNum={props.block.items.length}
+            key={index}
+          />
+        ))}
       </ul>
       <div
         onClick={() => {
