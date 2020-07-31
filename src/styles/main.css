@@ -8410,6 +8410,10 @@ body {
   min-height: 0;
 }
 
+.min-h-8 {
+  min-height: 2rem;
+}
+
 .min-h-20 {
   min-height: 5rem;
 }
@@ -26917,6 +26921,10 @@ body {
 
   .sm\:min-h-0 {
     min-height: 0;
+  }
+
+  .sm\:min-h-8 {
+    min-height: 2rem;
   }
 
   .sm\:min-h-20 {
@@ -45429,6 +45437,10 @@ body {
     min-height: 0;
   }
 
+  .md\:min-h-8 {
+    min-height: 2rem;
+  }
+
   .md\:min-h-20 {
     min-height: 5rem;
   }
@@ -63939,6 +63951,10 @@ body {
     min-height: 0;
   }
 
+  .lg\:min-h-8 {
+    min-height: 2rem;
+  }
+
   .lg\:min-h-20 {
     min-height: 5rem;
   }
@@ -82447,6 +82463,10 @@ body {
 
   .xl\:min-h-0 {
     min-height: 0;
+  }
+
+  .xl\:min-h-8 {
+    min-height: 2rem;
   }
 
   .xl\:min-h-20 {
