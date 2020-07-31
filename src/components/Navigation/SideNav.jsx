@@ -10,13 +10,27 @@ import { connect } from 'react-redux';
 //Actions
 import { addBlock } from '../../redux/actions/builderActions';
 
+//Components
+import SidenavButton from '../Partials/SidenavButton.jsx';
+
 const SideNav = (props) => {
   const toggleSideNav = () => {
     const sideNav = document.querySelector('#sidenav');
     sideNav.classList.toggle('open');
+    console.log('Sidenav');
+    console.log(document.querySelector('#building-blocks-container'));
+    if (document.querySelector('#building-blocks-container')) {
+      if (sideNav.classList.contains('open')) {
+        document.querySelector('#building-blocks-container').style.paddingLeft =
+          '14rem';
+      } else {
+        document.querySelector('#building-blocks-container').style.paddingLeft =
+          '1rem';
+      }
+    }
   };
 
-  const addBuildingBlock = (type) => {
+  const addTextBlock = (type) => {
     const id = uuidv4();
     const newBlock = {
       id,
@@ -25,6 +39,29 @@ const SideNav = (props) => {
     };
     props.addBlock(newBlock);
   };
+
+  const addListBlock = (type) => {
+    const id = uuidv4();
+    const newBlock = {
+      id,
+      type,
+      items: [],
+    };
+
+    props.addBlock(newBlock);
+  };
+
+  const addImageBlock = () => {
+    const id = uuidv4();
+    const newBlock = {
+      id,
+      type: 'Image',
+      path: '',
+    };
+
+    props.addBlock(newBlock);
+  };
+
   return (
     <div>
       <div
@@ -117,48 +154,30 @@ const SideNav = (props) => {
               className="sidenav-item__dropdown smenu"
               style={{ fontWeight: '100' }}
             >
-              <button
-                onClick={() => {
-                  addBuildingBlock('H1');
-                }}
-              >
-                H1
-              </button>
-              <button
-                onClick={() => {
-                  addBuildingBlock('H2');
-                }}
-              >
-                H2
-              </button>
-              <button
-                onClick={() => {
-                  addBuildingBlock('H3');
-                }}
-              >
-                H3
-              </button>
-              <button
-                onClick={() => {
-                  addBuildingBlock('H4');
-                }}
-              >
-                H4
-              </button>
-              <button
-                onClick={() => {
-                  addBuildingBlock('H5');
-                }}
-              >
-                H5
-              </button>
-              <button
-                onClick={() => {
-                  addBuildingBlock('H6');
-                }}
-              >
-                H6
-              </button>
+              <SidenavButton
+                buttonName={'H1'}
+                addBlock={() => addTextBlock('H1')}
+              />
+              <SidenavButton
+                buttonName={'H2'}
+                addBlock={() => addTextBlock('H2')}
+              />
+              <SidenavButton
+                buttonName={'H3'}
+                addBlock={() => addTextBlock('H3')}
+              />
+              <SidenavButton
+                buttonName={'H4'}
+                addBlock={() => addTextBlock('H4')}
+              />
+              <SidenavButton
+                buttonName={'H5'}
+                addBlock={() => addTextBlock('H5')}
+              />
+              <SidenavButton
+                buttonName={'H6'}
+                addBlock={() => addTextBlock('H6')}
+              />
             </div>
           </li>
           <li className="sidenav-item" id="lists">
@@ -186,81 +205,51 @@ const SideNav = (props) => {
               className="sidenav-item__dropdown smenu"
               style={{ fontWeight: '100' }}
             >
-              <button
-                onClick={() => {
-                  addBuildingBlock('OL');
-                }}
-              >
-                Ordered List
-              </button>
-              <button
-                onClick={() => {
-                  addBuildingBlock('UOL');
-                }}
-              >
-                Unordered List
-              </button>
+              <SidenavButton
+                buttonName={'Ordered List'}
+                addBlock={() => addListBlock('OL')}
+              />
+              <SidenavButton
+                buttonName={'Unordered List'}
+                addBlock={() => addListBlock('UOL')}
+              />
             </div>
           </li>
           <li className="sidenav-item">
-            <a
-              href="#text"
-              onClick={() => {
-                addBuildingBlock('Text');
-              }}
-            >
-              Text
-            </a>
+            <SidenavButton
+              buttonName={'Text'}
+              addBlock={() => addTextBlock('Text')}
+            />
           </li>
           <li className="sidenav-item">
-            <a
-              href="#blockquote"
-              onClick={() => {
-                addBuildingBlock('BQ');
-              }}
-            >
-              Blockquote
-            </a>
+            <SidenavButton
+              buttonName={'Blockquote'}
+              addBlock={() => addTextBlock('BQ')}
+            />
           </li>
           <li className="sidenav-item">
-            <a
-              href="#code"
-              onClick={() => {
-                addBuildingBlock('Code');
-              }}
-            >
-              Code
-            </a>
+            <SidenavButton
+              buttonName={'Code'}
+              addBlock={() => addTextBlock('Code')}
+            />
           </li>
           <li className="sidenav-item">
-            <a
-              href="#horizontalrule"
-              onClick={() => {
-                addBuildingBlock('HR');
-              }}
-            >
-              Horizontal Rule
-            </a>
+            <SidenavButton
+              buttonName={'Horizontal Rule'}
+              addBlock={() => addTextBlock('HR')}
+            />
           </li>
           <li className="sidenav-item">
-            <a
-              href="#link"
-              onClick={() => {
-                addBuildingBlock('Link');
-              }}
-            >
-              Link
-            </a>
+            <SidenavButton
+              buttonName={'Link'}
+              addBlock={() => addTextBlock('Link')}
+            />
           </li>
           <li className="sidenav-item">
-            <a
-              href="#image"
-              onClick={() => {
-                addBuildingBlock('Img');
-              }}
-            >
-              Image
-            </a>
+            <SidenavButton
+              buttonName={'Image'}
+              addBlock={() => addImageBlock('Image')}
+            />
           </li>
         </ul>
       </div>
