@@ -5,9 +5,10 @@ import { connect } from 'react-redux';
 
 //Actions
 import { removeBlock, updateBlock } from '../../redux/actions/builderActions';
+import { NULL_BLOCK } from '../../redux/actions/types';
 
 //Components
-import SideNav from '../Navigation/SideNav.jsx';
+import BuilderActionBar from '../Navigation/BuilderActionBar.jsx';
 import TextBlock from '../Partials/TextBlock.jsx';
 import ListBlock from '../Partials/ListBlock/ListBlock.jsx';
 import ImageBlock from '../Partials/ImageBlock.jsx';
@@ -25,10 +26,10 @@ const MarkdownBuilder = (props) => {
 
   return (
     <div>
-      <SideNav />
+      <BuilderActionBar />
       <div>
         <ul
-          className="pt-12 w-full pr-4 flex flex-col items-center justify-center"
+          className="pt-16 w-full px-4 flex flex-col items-center justify-center"
           style={{ transition: 'padding-left 300ms ease-in-out' }}
           id="building-blocks-container"
         >
