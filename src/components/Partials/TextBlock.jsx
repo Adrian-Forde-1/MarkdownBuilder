@@ -4,11 +4,19 @@ import React from 'react';
 import { connect } from 'react-redux';
 
 //Actions
-import { updateBlock, removeBlock } from '../../redux/actions/builderActions';
+import {
+  updateBlock,
+  removeBlock,
+  setSelectedBlock,
+} from '../../redux/actions/builderActions';
+import { TEXT_BLOCK } from '../../redux/actions/types';
 
 const TextBlock = (props) => {
   return (
-    <div className="w-full flex justify-center items-start mb-4 pl-4">
+    <div
+      className="w-full flex justify-center items-start mb-4 pl-4 cursor-pointer"
+      onClick={() => props.setSelectedBlock(TEXT_BLOCK)}
+    >
       <div className=" px-2 h-8 flex justify-center items-center text-white bg-theme_black-100">
         <span>{props.block.type}</span>
       </div>
@@ -60,6 +68,7 @@ const TextBlock = (props) => {
 const mapDispatchToProps = {
   updateBlock,
   removeBlock,
+  setSelectedBlock,
 };
 
 export default connect(null, mapDispatchToProps)(TextBlock);
