@@ -1,7 +1,7 @@
 import { BUILDER_VIEW, PREVIEW_VIEW, RAW_VIEW } from '../actions/types';
 
 const initialState = {
-  currentView: '',
+  currentView: 'builder',
 };
 
 const viewReducer = (state = initialState, action) => {
