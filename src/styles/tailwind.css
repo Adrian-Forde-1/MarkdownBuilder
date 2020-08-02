@@ -17,6 +17,10 @@ body {
   @apply whitespace-no-wrap tracking-extra1;
 }
 
+.color-white {
+  color: #ffffff !important;
+}
+
 /* Global End */
 
 /* Navbar Start */
