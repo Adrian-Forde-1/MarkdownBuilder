@@ -5,4 +5,57 @@
 #menu-toggle.sticky {
   background: #1e1e1e;
 }
+
+.builder-nav {
+  width: 100%;
+  height: 3rem;
+  position: fixed;
+  top: 0;
+  left: 0;
+}
+
+.builder-nav > a {
+  display: inline;
+}
+
+.builder-nav .nav-list {
+  width: -webkit-fit-content;
+  width: -moz-fit-content;
+  width: fit-content;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.builder-nav .nav-list li {
+  line-height: 1.5rem;
+  height: 3rem;
+  position: relative;
+}
+
+.builder-nav .nav-list li:hover > .sub-menu {
+  display: block;
+}
+
+.sub-menu {
+  margin-top: 3rem;
+  -webkit-transform-origin: top;
+          transform-origin: top;
+  display: none;
+  top: 0;
+  left: 0;
+  background: #1e1e1e;
+  position: absolute;
+}
+
+.sub-menu li {
+  color: white;
+  line-height: 1.5rem;
+  right: 0px;
+  padding: 0.5rem 4rem 0.5rem 0.5rem;
+}
+
+.sub-menu li:hover {
+  background: #1a1a1a;
+}
 /*# sourceMappingURL=navbar.css.map */
