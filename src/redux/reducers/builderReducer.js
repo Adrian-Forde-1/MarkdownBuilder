@@ -3,6 +3,7 @@ import { ADD_BLOCK, REMOVE_BLOCK, UPDATE_BLOCK } from '../actions/types';
 
 const initialState = {
   blocks: [],
+  selectedBlock: {},
 };
 
 const builderReducer = (state = initialState, action) => {
