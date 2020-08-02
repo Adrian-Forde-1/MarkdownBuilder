@@ -1,8 +1,5 @@
 import React from 'react';
 
-//Styling
-import '../../styles/navbar.css';
-
 //React Router DOM
 import { Link, withRouter } from 'react-router-dom';
 
@@ -16,7 +13,7 @@ const Navbar = (props) => {
     if (props.location.pathname == '/' || props.location.pathname == '') {
       return (
         <div
-          className="navbar w-full ease-out bg-theme_red-100 lg:px-40 px-12 lg:py-0 py-2 flex flex-wrap items-center fixed inset-x-0 top-0"
+          className="navbar w-full ease-out pinkpurple-purple-linear-gradient lg:px-40 px-12 lg:py-0 py-2 flex flex-wrap items-center fixed inset-x-0 top-0"
           style={{ transform: 'translateY(-100px)' }}
           id="navbar"
           style={{ zIndex: '100' }}

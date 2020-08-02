@@ -60,17 +60,23 @@ const Homepage = () => {
             Don’t Know Markdown? Not a Problem
           </p>
           <div className="flex justify-center mt-6 items-center w-auto">
-            <a href="#learn-more" className="cta mr-2 lg:mr-4">
+            <a
+              href="#learn-more"
+              className="cta mr-2 lg:mr-4 pinkpurple-purple-linear-gradient"
+            >
               Learn More
             </a>
-            <Link to="/builder" className="cta ml-2 lg:ml-4">
+            <Link
+              to="/builder"
+              className="cta ml-2 lg:ml-4 pinkpurple-purple-linear-gradient"
+            >
               Get Started
             </Link>
           </div>
         </div>
         <a
           href="#about"
-          className="w-10 h-10 md:mt-128 mt-96 bg-theme_red-100 rounded-full mx-auto flex justify-center items-center no-underline z-10"
+          className="w-10 h-10 md:mt-128 mt-96 pinkpurple-purple-linear-gradient rounded-full mx-auto flex justify-center items-center no-underline z-10"
         >
           <svg
             width="1em"
@@ -109,7 +115,7 @@ const Homepage = () => {
             ABOU<span style={{ letterSpacing: '0px' }}>T</span>
           </h1>
         </div>
-        <div className="bg-theme_red-100 about-item lg:px-40">
+        <div className="pinkpurple-purple-linear-gradient about-item lg:px-40">
           <div className="bg-white about-item__logo-container">
             <svg
               xmlns="http://www.w3.org/2000/svg"
@@ -118,7 +124,7 @@ const Homepage = () => {
               width="1em"
               height="1em"
               preserveAspectRatio="xMidYMid meet"
-              className="text-theme_red-100 about-item__logo-svg"
+              className="text-theme_pink-100 about-item__logo-svg"
               viewBox="0 0 24 24"
             >
               <path
@@ -133,7 +139,7 @@ const Homepage = () => {
           </div>
         </div>
         <div className="bg-white about-item lg:px-40">
-          <div className="bg-theme_red-100 about-item__logo-container">
+          <div className="bg-theme_pink-100 about-item__logo-container">
             <svg
               width="1em"
               height="1em"
@@ -161,7 +167,7 @@ const Homepage = () => {
               }}
             ></div>
           </div>
-          <div className="text-theme_red-100 about-item__content-container">
+          <div className="about-item__content-container text-theme_pink-100">
             <h1>No Setup</h1>
             <p>
               Jump right into creating. Straight to the point. Everything you
@@ -169,7 +175,7 @@ const Homepage = () => {
             </p>
           </div>
         </div>
-        <div className="bg-theme_red-100 about-item md:flex-row lg:px-40">
+        <div className="pinkpurple-purple-linear-gradient about-item md:flex-row lg:px-40">
           <div className="bg-white about-item__logo-container">
             <svg
               xmlns="http://www.w3.org/2000/svg"
@@ -177,7 +183,7 @@ const Homepage = () => {
               focusable="false"
               width="1em"
               height="1em"
-              className="text-theme_red-100 about-item__logo-svg"
+              className="text-theme_pink-100 about-item__logo-svg"
               preserveAspectRatio="xMidYMid meet"
               viewBox="0 0 20 20"
             >
