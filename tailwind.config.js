@@ -26,6 +26,12 @@ module.exports = {
         300: '#181818',
         400: '#111111',
       },
+      theme_pink: {
+        100: '#cc2b5e ',
+      },
+      theme_purple: {
+        100: '#753a88',
+      },
       gray: {
         100: '#f7fafc',
         200: '#edf2f7',
