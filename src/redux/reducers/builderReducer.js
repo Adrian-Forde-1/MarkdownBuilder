@@ -1,9 +1,15 @@
 //Actions
-import { ADD_BLOCK, REMOVE_BLOCK, UPDATE_BLOCK } from '../actions/types';
+import {
+  ADD_BLOCK,
+  REMOVE_BLOCK,
+  UPDATE_BLOCK,
+  SET_SELECTED_BLOCK,
+  NULL_BLOCK,
+} from '../actions/types';
 
 const initialState = {
   blocks: [],
-  selectedBlock: {},
+  selectedBlock: NULL_BLOCK,
 };
 
 const builderReducer = (state = initialState, action) => {
@@ -27,6 +33,11 @@ const builderReducer = (state = initialState, action) => {
             return action.payload;
           }
         }),
+      };
+    case SET_SELECTED_BLOCK:
+      return {
+        ...state,
+        selectedBlock: action.payload,
       };
     default:
       return state;
