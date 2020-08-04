@@ -19,6 +19,9 @@ import {
   TEXT_BLOCK,
   LIST_BLOCK,
   TABLE_BLOCK,
+  IMAGE_BLOCK,
+  UNORDEREDLIST_BLOCK,
+  ORDEREDLIST_BLOCK,
   NULL_BLOCK,
 } from '../../redux/actions/types';
 
@@ -61,11 +64,12 @@ const SideNav = (props) => {
     }
   };
 
-  const addTextBlock = (type) => {
+  const addTextBlock = (blockType, type) => {
     const id = uuidv4();
     const newBlock = {
       id,
       type,
+      blockType,
       value: '',
       bold: false,
       italic: false,
@@ -74,10 +78,11 @@ const SideNav = (props) => {
     props.addBlock(newBlock);
   };
 
-  const addListBlock = (type) => {
+  const addListBlock = (blockType, type) => {
     const id = uuidv4();
     const newBlock = {
       id,
+      blockType,
       type,
       items: [{ value: '' }],
     };
@@ -89,7 +94,7 @@ const SideNav = (props) => {
     const id = uuidv4();
     const newBlock = {
       id,
-      type: 'Image',
+      type: IMAGE_BLOCK,
       path: '',
     };
 
@@ -100,7 +105,7 @@ const SideNav = (props) => {
     const id = uuidv4();
     const newBlock = {
       id,
-      type: 'Table',
+      type: TABLE_BLOCK,
       items: [
         ['', '', ''],
         ['', '', ''],
@@ -133,37 +138,37 @@ const SideNav = (props) => {
             <ul className=" text-white">
               <li
                 className="flex items-center justify-center"
-                onClick={() => addTextBlock('H1')}
+                onClick={() => addTextBlock(TEXT_BLOCK, 'H1')}
               >
                 H1
               </li>
               <li
                 className="flex items-center justify-center"
-                onClick={() => addTextBlock('H2')}
+                onClick={() => addTextBlock(TEXT_BLOCK, 'H2')}
               >
                 H2
               </li>
               <li
                 className="flex items-center justify-center"
-                onClick={() => addTextBlock('H3')}
+                onClick={() => addTextBlock(TEXT_BLOCK, 'H3')}
               >
                 H3
               </li>
               <li
                 className="flex items-center justify-center"
-                onClick={() => addTextBlock('H4')}
+                onClick={() => addTextBlock(TEXT_BLOCK, 'H4')}
               >
                 H4
               </li>
               <li
                 className="flex items-center justify-center"
-                onClick={() => addTextBlock('H5')}
+                onClick={() => addTextBlock(TEXT_BLOCK, 'H5')}
               >
                 H5
               </li>
               <li
                 className="flex items-center justify-center"
-                onClick={() => addTextBlock('H6')}
+                onClick={() => addTextBlock(TEXT_BLOCK, 'H6')}
               >
                 H6
               </li>
@@ -172,37 +177,37 @@ const SideNav = (props) => {
         </li>
         <li
           className="px-4 border-b-2 border-transparent flex justify-center items-center bg-transparent cursor-pointer"
-          onClick={() => addListBlock('OL')}
+          onClick={() => addListBlock(ORDEREDLIST_BLOCK, 'OL')}
         >
           <OrderedListSVG classes="text-theme-gray-100 text-lg hover:text-white" />
         </li>
         <li
           className="px-4 border-b-2 border-transparent flex justify-center items-center bg-transparent cursor-pointer"
-          onClick={() => addListBlock('UOL')}
+          onClick={() => addListBlock(UNORDEREDLIST_BLOCK, 'UOL')}
         >
           <UnorderedListSVG classes="text-theme-gray-100 text-lg hover:text-white" />
         </li>
         <li
           className="px-4 border-b-2 border-transparent flex justify-center items-center bg-transparent cursor-pointer"
-          onClick={() => addTextBlock('Text')}
+          onClick={() => addTextBlock(TEXT_BLOCK, 'Text')}
         >
           <TextSVG classes="text-theme-gray-100 text-lg hover:text-white" />
         </li>
         <li
           className="px-4 border-b-2 border-transparent flex justify-center items-center bg-transparent cursor-pointer"
-          onClick={() => addTextBlock('Link')}
+          onClick={() => addTextBlock(TEXT_BLOCK, 'Link')}
         >
           <LinkSVG classes="text-theme-gray-100 text-lg hover:text-white" />
         </li>
         <li
           className="px-4 border-b-2 border-transparent flex justify-center items-center bg-transparent cursor-pointer"
-          onClick={() => addTextBlock('BQ')}
+          onClick={() => addTextBlock(TEXT_BLOCK, 'BQ')}
         >
           <QuoteSVG classes="text-theme-gray-100 text-lg hover:text-white" />
         </li>
         <li
           className="px-4 border-b-2 border-transparent flex justify-center items-center bg-transparent cursor-pointer"
-          onClick={() => addTextBlock('Code')}
+          onClick={() => addTextBlock(TEXT_BLOCK, 'Code')}
         >
           <CodeSVG classes="text-theme-gray-100 text-lg hover:text-white" />
         </li>
