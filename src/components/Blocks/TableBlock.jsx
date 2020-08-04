@@ -12,6 +12,11 @@ import {
 import { TABLE_BLOCK } from '../../redux/actions/types';
 
 const TableBlock = (props) => {
+  const updateTableField = (parentIndex, index, e) => {
+    const block = Object.assign({}, props.block);
+    block.items[parentIndex][index] = e.target.value;
+    props.updateBlock(block);
+  };
   return (
     <div
       className="w-full flex justify-center items-start mb-4 pl-4 cursor-pointer"
@@ -31,6 +36,7 @@ const TableBlock = (props) => {
                       className="text-center text-black border border-theme_black-100 font-bold flex-1"
                       key={i}
                       value={value}
+                      onChange={(e) => updateTableField(index, i, e)}
                     />
                   ))}
                 </div>
@@ -43,9 +49,10 @@ const TableBlock = (props) => {
                 >
                   {item.map((value, i) => (
                     <input
-                      className="text-center text-gray-700 border border-theme_black-100 font-bold flex-1"
+                      className="text-center text-gray-700 border border-theme_black-100 flex-1"
                       key={i}
                       value={value}
+                      onChange={(e) => updateTableField(index, i, e)}
                     />
                   ))}
                 </div>
