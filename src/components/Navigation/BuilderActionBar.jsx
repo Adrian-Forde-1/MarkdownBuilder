@@ -94,7 +94,8 @@ const SideNav = (props) => {
     const id = uuidv4();
     const newBlock = {
       id,
-      type: IMAGE_BLOCK,
+      blockType: IMAGE_BLOCK,
+      type: 'Image',
       path: '',
     };
 
@@ -105,7 +106,8 @@ const SideNav = (props) => {
     const id = uuidv4();
     const newBlock = {
       id,
-      type: TABLE_BLOCK,
+      blockType: TABLE_BLOCK,
+      type: 'Table',
       items: [
         ['', '', ''],
         ['', '', ''],
