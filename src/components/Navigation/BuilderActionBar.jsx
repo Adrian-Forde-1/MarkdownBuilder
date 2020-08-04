@@ -23,7 +23,6 @@ import {
 } from '../../redux/actions/types';
 
 //Components
-import SidenavButton from '../Partials/SidenavButton.jsx';
 import OrderedListSVG from '../SVG/OrderedListSVG.jsx';
 import UnorderedListSVG from '../SVG/UnorderedListSVG.jsx';
 import HeadingSVG from '../SVG/HeadingSVG.jsx';
@@ -87,6 +86,21 @@ const SideNav = (props) => {
       id,
       type: 'Image',
       path: '',
+    };
+
+    props.addBlock(newBlock);
+  };
+
+  const addTableBlock = () => {
+    const id = uuidv4();
+    const newBlock = {
+      id,
+      type: 'Table',
+      items: [
+        ['', '', ''],
+        ['', '', ''],
+        ['', '', ''],
+      ],
     };
 
     props.addBlock(newBlock);
@@ -189,7 +203,7 @@ const SideNav = (props) => {
         </li>
         <li
           className="px-4 border-b-2 border-transparent flex justify-center items-center bg-transparent cursor-pointer"
-          onClick={() => addTextBlock('Table')}
+          onClick={() => addTableBlock()}
         >
           <TableSVG classes="text-theme-gray-100 text-base hover:text-white" />
         </li>

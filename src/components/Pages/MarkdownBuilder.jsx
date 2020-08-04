@@ -9,9 +9,10 @@ import { NULL_BLOCK } from '../../redux/actions/types';
 
 //Components
 import BuilderActionBar from '../Navigation/BuilderActionBar.jsx';
-import TextBlock from '../Partials/TextBlock.jsx';
-import ListBlock from '../Partials/ListBlock/ListBlock.jsx';
-import ImageBlock from '../Partials/ImageBlock.jsx';
+import TextBlock from '../Blocks/TextBlock.jsx';
+import ListBlock from '../Blocks/ListBlock/ListBlock.jsx';
+import ImageBlock from '../Blocks/ImageBlock.jsx';
+import TableBlock from '../Blocks/TableBlock.jsx';
 
 const MarkdownBuilder = (props) => {
   const decideWhichBlockToRender = (block) => {
@@ -19,6 +20,8 @@ const MarkdownBuilder = (props) => {
       return <ImageBlock block={block} />;
     } else if (block.type === 'UOL' || block.type === 'OL') {
       return <ListBlock block={block} />;
+    } else if (block.type === 'Table') {
+      return <TableBlock block={block} />;
     } else {
       return <TextBlock block={block} />;
     }
