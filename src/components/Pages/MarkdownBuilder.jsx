@@ -5,7 +5,14 @@ import { connect } from 'react-redux';
 
 //Actions
 import { removeBlock, updateBlock } from '../../redux/actions/builderActions';
-import { NULL_BLOCK } from '../../redux/actions/types';
+import {
+  TEXT_BLOCK,
+  TABLE_BLOCK,
+  UNORDEREDLIST_BLOCK,
+  ORDEREDLIST_BLOCK,
+  IMAGE_BLOCK,
+  NULL_BLOCK,
+} from '../../redux/actions/types';
 
 //Components
 import BuilderActionBar from '../Navigation/BuilderActionBar.jsx';
@@ -16,11 +23,14 @@ import TableBlock from '../Blocks/TableBlock.jsx';
 
 const MarkdownBuilder = (props) => {
   const decideWhichBlockToRender = (block) => {
-    if (block.type === 'Image') {
+    if (block.blockType === IMAGE_BLOCK) {
       return <ImageBlock block={block} />;
-    } else if (block.type === 'UOL' || block.type === 'OL') {
+    } else if (
+      block.type === UNORDEREDLIST_BLOCK ||
+      block.type === ORDEREDLIST_BLOCK
+    ) {
       return <ListBlock block={block} />;
-    } else if (block.type === 'Table') {
+    } else if (block.type === TABLE_BLOCK) {
       return <TableBlock block={block} />;
     } else {
       return <TextBlock block={block} />;

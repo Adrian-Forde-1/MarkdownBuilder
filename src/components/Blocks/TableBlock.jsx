@@ -20,7 +20,7 @@ const TableBlock = (props) => {
   return (
     <div
       className="w-full flex justify-center items-start mb-4 pl-4 cursor-pointer"
-      onClick={() => props.setSelectedBlock(TABLE_BLOCK)}
+      onClick={() => props.setSelectedBlock(props.block)}
     >
       {props.block.items.length > 0 && (
         <div className="flex flex-col justify-center items-center">

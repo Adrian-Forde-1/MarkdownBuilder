@@ -24,7 +24,7 @@ const ListBlock = (props) => {
   return (
     <div
       className="w-full flex justify-center items-start mb-4 pl-4"
-      onClick={() => props.setSelectedBlock(LIST_BLOCK)}
+      onClick={() => props.setSelectedBlock(props.block)}
     >
       <div className=" px-2 h-8 flex justify-center items-center text-white bg-theme_black-100">
         <span>{props.block.type}</span>

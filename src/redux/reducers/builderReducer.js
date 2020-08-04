@@ -9,7 +9,7 @@ import {
 
 const initialState = {
   blocks: [],
-  selectedBlock: NULL_BLOCK,
+  selectedBlock: {},
 };
 
 const builderReducer = (state = initialState, action) => {

@@ -227,7 +227,7 @@ const SideNav = (props) => {
         </li>
       </ul>
 
-      {props.selectedBlock === TEXT_BLOCK && (
+      {props.selectedBlock.blockType === TEXT_BLOCK && (
         <ul className="nav-list mx-auto">
           <li className="px-4 border-b-2 border-transparent flex justify-center items-center bg-transparent cursor-pointer">
             <BoldSVG classes="text-theme-gray-100 text-lg hover:text-white" />
@@ -240,7 +240,7 @@ const SideNav = (props) => {
           </li>
         </ul>
       )}
-      {props.selectedBlock === TABLE_BLOCK && (
+      {props.selectedBlock.blockType === TABLE_BLOCK && (
         <ul className="nav-list mx-auto">
           <li className="px-4 border-b-2 border-transparent flex justify-center items-center bg-transparent cursor-pointer">
             <RemoveColumnSVG classes="text-theme-gray-100 text-lg hover:text-white" />
@@ -256,7 +256,14 @@ const SideNav = (props) => {
           </li>
         </ul>
       )}
-      {props.selectedBlock === LIST_BLOCK && (
+      {props.selectedBlock.blockType === UNORDEREDLIST_BLOCK && (
+        <ul className="nav-list mx-auto">
+          <li className="px-4 border-b-2 border-transparent flex justify-center items-center bg-transparent cursor-pointer">
+            <AddSVG classes="text-theme-gray-100 text-lg hover:text-white" />
+          </li>
+        </ul>
+      )}
+      {props.selectedBlock.blockType === ORDEREDLIST_BLOCK && (
         <ul className="nav-list mx-auto">
           <li className="px-4 border-b-2 border-transparent flex justify-center items-center bg-transparent cursor-pointer">
             <AddSVG classes="text-theme-gray-100 text-lg hover:text-white" />
