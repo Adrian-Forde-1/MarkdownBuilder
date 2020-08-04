@@ -9,7 +9,7 @@ const ListBlockItem = (props) => {
         value={props.value}
         onChange={(e) => props.updateList(props.itemIndex, e.target.value)}
       />
-      {props.listItemNum === 1 && (
+      {props.listItemNum > 1 && (
         <svg
           xmlns="http://www.w3.org/2000/svg"
           aria-hidden="true"
@@ -20,6 +20,7 @@ const ListBlockItem = (props) => {
           style={{ top: '50%', right: '10px', transform: 'translateY(-50%)' }}
           preserveAspectRatio="xMidYMid meet"
           viewBox="0 0 512 512"
+          onClick={(e) => props.removeListItem(props.itemIndex, e.target.value)}
         >
           <path
             d="M296 64h-80a7.91 7.91 0 0 0-8 8v24h96V72a7.91 7.91 0 0 0-8-8z"

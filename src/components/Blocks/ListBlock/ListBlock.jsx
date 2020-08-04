@@ -20,6 +20,14 @@ const ListBlock = (props) => {
     props.updateBlock(newArray);
   };
 
+  const removeListItem = (itemIndex) => {
+    const newArray = Object.assign({}, props.block);
+    newArray.items = newArray.items.filter(
+      (item, index) => index !== itemIndex
+    );
+    props.updateBlock(newArray);
+  };
+
   return (
     <div
       className="w-full flex justify-center items-start mb-4 pl-4"
@@ -37,6 +45,7 @@ const ListBlock = (props) => {
             value={item.value}
             itemIndex={index}
             updateList={updateList}
+            removeListItem={removeListItem}
             listItemNum={props.block.items.length}
             key={index}
           />
