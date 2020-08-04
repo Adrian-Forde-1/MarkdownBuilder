@@ -12,6 +12,8 @@ export const RAW_VIEW = 'RAW_VIEW';
 //Selected Block Types
 export const TEXT_BLOCK = 'TEXT_BLOCK';
 export const LIST_BLOCK = 'LIST_BLOCK';
+export const UNORDEREDLIST_BLOCK = 'UNORDEREDLIST_BLOCK';
+export const ORDEREDLIST_BLOCK = 'ORDEREDLIST_BLOCK';
 export const TABLE_BLOCK = 'TABLE_BLOCK';
 export const IMAGE_BLOCK = 'IMAGE_BLOCK';
 export const NULL_BLOCK = 'NULL_BLOCK';
