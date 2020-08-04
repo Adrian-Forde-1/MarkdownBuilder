@@ -39,6 +39,11 @@ import RawFileSVG from '../SVG/RawFileSVG.jsx';
 import BoldSVG from '../SVG/BoldSVG.jsx';
 import ItalicSVG from '../SVG/ItalicSVG.jsx';
 import StrikeThrough from '../SVG/StrikeThroughSVG.jsx';
+import RemoveColumnSVG from '../SVG/RemoveColumnSVG.jsx';
+import AddColumnSVG from '../SVG/AddColumnSVG.jsx';
+import RemoveRowSVG from '../SVG/RemoveRowSVG.jsx';
+import AddRowSVG from '../SVG/AddRowSVG.jsx';
+import AddSVG from '../SVG/AddSVG.jsx';
 
 const SideNav = (props) => {
   const toggleSideNav = () => {
@@ -225,6 +230,29 @@ const SideNav = (props) => {
           </li>
           <li className="px-4 border-b-2 border-transparent flex justify-center items-center bg-transparent cursor-pointer">
             <StrikeThrough classes="text-theme-gray-100 text-base hover:text-white" />
+          </li>
+        </ul>
+      )}
+      {props.selectedBlock === TABLE_BLOCK && (
+        <ul className="nav-list mx-auto">
+          <li className="px-4 border-b-2 border-transparent flex justify-center items-center bg-transparent cursor-pointer">
+            <RemoveColumnSVG classes="text-theme-gray-100 text-lg hover:text-white" />
+          </li>
+          <li className="px-4 border-b-2 border-transparent flex justify-center items-center bg-transparent cursor-pointer">
+            <RemoveRowSVG classes="text-theme-gray-100 text-lg hover:text-white" />
+          </li>
+          <li className="px-4 border-b-2 border-transparent flex justify-center items-center bg-transparent cursor-pointer">
+            <AddColumnSVG classes="text-theme-gray-100 text-base hover:text-white" />
+          </li>
+          <li className="px-4 border-b-2 border-transparent flex justify-center items-center bg-transparent cursor-pointer">
+            <AddRowSVG classes="text-theme-gray-100 text-base hover:text-white" />
+          </li>
+        </ul>
+      )}
+      {props.selectedBlock === LIST_BLOCK && (
+        <ul className="nav-list mx-auto">
+          <li className="px-4 border-b-2 border-transparent flex justify-center items-center bg-transparent cursor-pointer">
+            <AddSVG classes="text-theme-gray-100 text-lg hover:text-white" />
           </li>
         </ul>
       )}

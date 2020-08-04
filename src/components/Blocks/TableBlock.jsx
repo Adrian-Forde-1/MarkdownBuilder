@@ -11,15 +11,15 @@ import {
 } from '../../redux/actions/builderActions';
 import { TABLE_BLOCK } from '../../redux/actions/types';
 
-const TableBlock = ({ block }) => {
+const TableBlock = (props) => {
   return (
     <div
       className="w-full flex justify-center items-start mb-4 pl-4 cursor-pointer"
       onClick={() => props.setSelectedBlock(TABLE_BLOCK)}
     >
-      {block.items.length > 0 && (
+      {props.block.items.length > 0 && (
         <div className="flex flex-col justify-center items-center">
-          {block.items.map((item, index) => {
+          {props.block.items.map((item, index) => {
             if (index === 0) {
               return (
                 <div
@@ -56,7 +56,7 @@ const TableBlock = ({ block }) => {
       )}
       <div
         onClick={() => {
-          props.removeBlock(block.id);
+          props.removeBlock(props.block.id);
         }}
       >
         <svg

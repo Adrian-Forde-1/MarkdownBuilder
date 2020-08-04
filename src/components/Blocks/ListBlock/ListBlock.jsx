@@ -7,7 +7,9 @@ import { connect } from 'react-redux';
 import {
   updateBlock,
   removeBlock,
+  setSelectedBlock,
 } from '../../../redux/actions/builderActions';
+import { LIST_BLOCK } from '../../../redux/actions/types';
 
 //Components
 import ListBlockItem from './ListBlockItem.jsx';
@@ -20,7 +22,10 @@ const ListBlock = (props) => {
   };
 
   return (
-    <div className="w-full flex justify-center items-start mb-4 pl-4">
+    <div
+      className="w-full flex justify-center items-start mb-4 pl-4"
+      onClick={() => props.setSelectedBlock(LIST_BLOCK)}
+    >
       <div className=" px-2 h-8 flex justify-center items-center text-white bg-theme_black-100">
         <span>{props.block.type}</span>
       </div>
@@ -67,6 +72,7 @@ const ListBlock = (props) => {
 const mapDispatchToProps = {
   updateBlock,
   removeBlock,
+  setSelectedBlock,
 };
 
 export default connect(null, mapDispatchToProps)(ListBlock);
