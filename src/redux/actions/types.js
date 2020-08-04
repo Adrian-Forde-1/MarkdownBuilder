@@ -13,4 +13,5 @@ export const RAW_VIEW = 'RAW_VIEW';
 export const TEXT_BLOCK = 'TEXT_BLOCK';
 export const LIST_BLOCK = 'LIST_BLOCK';
 export const TABLE_BLOCK = 'TABLE_BLOCK';
+export const IMAGE_BLOCK = 'IMAGE_BLOCK';
 export const NULL_BLOCK = 'NULL_BLOCK';

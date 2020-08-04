@@ -50,6 +50,7 @@ const TableBlock = (props) => {
                   {item.map((value, i) => (
                     <input
                       className="text-center text-gray-700 border border-theme_black-100 flex-1"
+                      style={{ borderTop: 'none' }}
                       key={i}
                       value={value}
                       onChange={(e) => updateTableField(index, i, e)}
