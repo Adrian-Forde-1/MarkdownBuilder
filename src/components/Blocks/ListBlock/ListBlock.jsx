@@ -9,15 +9,14 @@ import {
   removeBlock,
   setSelectedBlock,
 } from '../../../redux/actions/builderActions';
-import { LIST_BLOCK } from '../../../redux/actions/types';
 
 //Components
 import ListBlockItem from './ListBlockItem.jsx';
 
 const ListBlock = (props) => {
-  const updateList = (itemIndex, value) => {
+  const updateList = (itemIndex, itemValue) => {
     const newArray = Object.assign({}, props.block);
-    newArray.items[itemIndex].value = value;
+    newArray.items[itemIndex].value = itemValue;
     props.updateBlock(newArray);
   };
 
@@ -29,7 +28,10 @@ const ListBlock = (props) => {
       <div className=" px-2 h-8 flex justify-center items-center text-white bg-theme_black-100">
         <span>{props.block.type}</span>
       </div>
-      <ul className="flex-1" id={`${props.block.id}-${props.block.type}`}>
+      <ul
+        className="flex-1 flex flex-col justify-center items-center"
+        id={`${props.block.id}-${props.block.type}`}
+      >
         {props.block.items.map((item, index) => (
           <ListBlockItem
             value={item.value}

@@ -26,11 +26,11 @@ const MarkdownBuilder = (props) => {
     if (block.blockType === IMAGE_BLOCK) {
       return <ImageBlock block={block} />;
     } else if (
-      block.type === UNORDEREDLIST_BLOCK ||
-      block.type === ORDEREDLIST_BLOCK
+      block.blockType === UNORDEREDLIST_BLOCK ||
+      block.blockType === ORDEREDLIST_BLOCK
     ) {
       return <ListBlock block={block} />;
-    } else if (block.type === TABLE_BLOCK) {
+    } else if (block.blockType === TABLE_BLOCK) {
       return <TableBlock block={block} />;
     } else {
       return <TextBlock block={block} />;

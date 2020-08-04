@@ -3,6 +3,8 @@ import {
   REMOVE_BLOCK,
   UPDATE_BLOCK,
   SET_SELECTED_BLOCK,
+  ADD_LIST_ITEM,
+  REMOVE_LIST_ITEM,
 } from './types';
 
 export const addBlock = (block) => {
@@ -20,6 +22,8 @@ export const removeBlock = (blockId) => {
 };
 
 export const updateBlock = (block) => {
+  console.log('Update block called');
+  console.log(block);
   return {
     type: UPDATE_BLOCK,
     payload: block,
@@ -27,11 +31,21 @@ export const updateBlock = (block) => {
 };
 
 export const setSelectedBlock = (blockType) => {
-  console.log('Set selected block');
-  console.log(blockType);
-
   return {
     type: SET_SELECTED_BLOCK,
     payload: blockType,
+  };
+};
+
+export const addListItem = (block) => {
+  return {
+    type: ADD_LIST_ITEM,
+    payload: block,
+  };
+};
+export const removeListItem = (block) => {
+  return {
+    type: REMOVE_LIST_ITEM,
+    payload: block,
   };
 };

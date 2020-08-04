@@ -9,7 +9,7 @@ import { Link, withRouter } from 'react-router-dom';
 import { connect } from 'react-redux';
 
 //Actions
-import { addBlock } from '../../redux/actions/builderActions';
+import { addBlock, addListItem } from '../../redux/actions/builderActions';
 import {
   changeToBuilderView,
   changeToPreviewView,
@@ -88,6 +88,12 @@ const SideNav = (props) => {
     };
 
     props.addBlock(newBlock);
+  };
+
+  const addNewListItem = () => {
+    const updatedBlock = Object.assign({}, props.selectedBlock);
+    updatedBlock.items.push({ value: '' });
+    props.addListItem(updatedBlock);
   };
 
   const addImageBlock = () => {
@@ -258,14 +264,20 @@ const SideNav = (props) => {
       )}
       {props.selectedBlock.blockType === UNORDEREDLIST_BLOCK && (
         <ul className="nav-list mx-auto">
-          <li className="px-4 border-b-2 border-transparent flex justify-center items-center bg-transparent cursor-pointer">
+          <li
+            className="px-4 border-b-2 border-transparent flex justify-center items-center bg-transparent cursor-pointer"
+            onClick={() => addNewListItem()}
+          >
             <AddSVG classes="text-theme-gray-100 text-lg hover:text-white" />
           </li>
         </ul>
       )}
       {props.selectedBlock.blockType === ORDEREDLIST_BLOCK && (
         <ul className="nav-list mx-auto">
-          <li className="px-4 border-b-2 border-transparent flex justify-center items-center bg-transparent cursor-pointer">
+          <li
+            className="px-4 border-b-2 border-transparent flex justify-center items-center bg-transparent cursor-pointer"
+            onClick={() => addNewListItem()}
+          >
             <AddSVG classes="text-theme-gray-100 text-lg hover:text-white" />
           </li>
         </ul>
@@ -311,6 +323,7 @@ const SideNav = (props) => {
 
 const mapDispatchToProps = {
   addBlock,
+  addListItem,
   changeToBuilderView,
   changeToPreviewView,
   changeToRawView,

@@ -4,6 +4,8 @@ import {
   REMOVE_BLOCK,
   UPDATE_BLOCK,
   SET_SELECTED_BLOCK,
+  ADD_LIST_ITEM,
+  REMOVE_LIST_ITEM,
   NULL_BLOCK,
 } from '../actions/types';
 
@@ -39,6 +41,16 @@ const builderReducer = (state = initialState, action) => {
         ...state,
         selectedBlock: action.payload,
       };
+    case ADD_LIST_ITEM: {
+      return {
+        ...state,
+        blocks: state.blocks.map((block) => {
+          if (block.id !== action.payload.id) {
+            return block;
+          } else return action.payload;
+        }),
+      };
+    }
     default:
       return state;
   }
