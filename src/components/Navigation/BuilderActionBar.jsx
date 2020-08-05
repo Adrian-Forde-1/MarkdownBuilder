@@ -9,7 +9,11 @@ import { Link, withRouter } from 'react-router-dom';
 import { connect } from 'react-redux';
 
 //Actions
-import { addBlock, addListItem } from '../../redux/actions/builderActions';
+import {
+  addBlock,
+  addListItem,
+  updateBlock,
+} from '../../redux/actions/builderActions';
 import {
   changeToBuilderView,
   changeToPreviewView,
@@ -49,21 +53,6 @@ import AddRowSVG from '../SVG/AddRowSVG.jsx';
 import AddSVG from '../SVG/AddSVG.jsx';
 
 const SideNav = (props) => {
-  const toggleSideNav = () => {
-    const sideNav = document.querySelector('#sidenav');
-    gray - 250;
-    sideNav.classList.toggle('open');
-    if (document.querySelector('#building-blocks-container')) {
-      if (sideNav.classList.contains('open')) {
-        document.querySelector('#building-blocks-container').style.paddingLeft =
-          '14rem';
-      } else {
-        document.querySelector('#building-blocks-container').style.paddingLeft =
-          '1rem';
-      }
-    }
-  };
-
   const addTextBlock = (blockType, type) => {
     const id = uuidv4();
     const newBlock = {
@@ -90,12 +79,6 @@ const SideNav = (props) => {
     props.addBlock(newBlock);
   };
 
-  const addNewListItem = () => {
-    const updatedBlock = Object.assign({}, props.selectedBlock);
-    updatedBlock.items.push({ value: '' });
-    props.addListItem(updatedBlock);
-  };
-
   const addImageBlock = () => {
     const id = uuidv4();
     const newBlock = {
@@ -114,6 +97,8 @@ const SideNav = (props) => {
       id,
       blockType: TABLE_BLOCK,
       type: 'Table',
+      rows: 3,
+      cols: 3,
       items: [
         ['', '', ''],
         ['', '', ''],
@@ -123,6 +108,44 @@ const SideNav = (props) => {
 
     props.addBlock(newBlock);
   };
+
+  const addNewListItem = () => {
+    const updatedBlock = Object.assign({}, props.selectedBlock);
+    updatedBlock.items.push({ value: '' });
+    props.addListItem(updatedBlock);
+  };
+
+  const addTableColumn = () => {
+    const block = props.blocks.find(
+      (block) => block.id === props.selectedBlock.id
+    );
+    const updatedBlock = Object.assign({}, block);
+    for (let i = 0; i < updatedBlock.rows; i++) {
+      updatedBlock.items[i].push('');
+    }
+    updatedBlock.cols += 1;
+
+    props.updateBlock(updatedBlock);
+  };
+
+  const addTableRow = () => {
+    const block = props.blocks.find(
+      (block) => block.id === props.selectedBlock.id
+    );
+    const updatedBlock = Object.assign({}, block);
+    const newRow = [];
+    for (let i = 0; i < updatedBlock.cols; i++) {
+      newRow.push('');
+    }
+    updatedBlock.items.push(newRow);
+    updatedBlock.rows += 1;
+
+    props.updateBlock(updatedBlock);
+  };
+
+  const removeTableColumn = () => {};
+
+  const removeTableRow = () => {};
 
   return (
     <nav
@@ -248,16 +271,28 @@ const SideNav = (props) => {
       )}
       {props.selectedBlock.blockType === TABLE_BLOCK && (
         <ul className="nav-list mx-auto">
-          <li className="px-4 border-b-2 border-transparent flex justify-center items-center bg-transparent cursor-pointer">
+          <li
+            className="px-4 border-b-2 border-transparent flex justify-center items-center bg-transparent cursor-pointer"
+            onClick={() => removeTableColumn()}
+          >
             <RemoveColumnSVG classes="text-theme-gray-100 text-lg hover:text-white" />
           </li>
-          <li className="px-4 border-b-2 border-transparent flex justify-center items-center bg-transparent cursor-pointer">
+          <li
+            className="px-4 border-b-2 border-transparent flex justify-center items-center bg-transparent cursor-pointer"
+            onClick={() => removeTableRow()}
+          >
             <RemoveRowSVG classes="text-theme-gray-100 text-lg hover:text-white" />
           </li>
-          <li className="px-4 border-b-2 border-transparent flex justify-center items-center bg-transparent cursor-pointer">
+          <li
+            className="px-4 border-b-2 border-transparent flex justify-center items-center bg-transparent cursor-pointer"
+            onClick={() => addTableColumn()}
+          >
             <AddColumnSVG classes="text-theme-gray-100 text-base hover:text-white" />
           </li>
-          <li className="px-4 border-b-2 border-transparent flex justify-center items-center bg-transparent cursor-pointer">
+          <li
+            className="px-4 border-b-2 border-transparent flex justify-center items-center bg-transparent cursor-pointer"
+            onClick={() => addTableRow()}
+          >
             <AddRowSVG classes="text-theme-gray-100 text-base hover:text-white" />
           </li>
         </ul>
@@ -324,6 +359,7 @@ const SideNav = (props) => {
 const mapDispatchToProps = {
   addBlock,
   addListItem,
+  updateBlock,
   changeToBuilderView,
   changeToPreviewView,
   changeToRawView,
@@ -332,6 +368,7 @@ const mapDispatchToProps = {
 const mapStateToProps = (state) => ({
   currentView: state.views.currentView,
   selectedBlock: state.builder.selectedBlock,
+  blocks: state.builder.blocks,
 });
 
 export default connect(

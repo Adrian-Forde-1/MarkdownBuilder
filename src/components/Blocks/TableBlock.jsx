@@ -19,7 +19,7 @@ const TableBlock = (props) => {
   };
   return (
     <div
-      className="w-full flex justify-center items-start mb-4 pl-4 cursor-pointer"
+      className="w-full max-w-full overflow-x-auto flex justify-center items-start mb-4 pl-4 cursor-pointer"
       onClick={() => props.setSelectedBlock(props.block)}
     >
       {props.block.items.length > 0 && (

@@ -22,8 +22,6 @@ export const removeBlock = (blockId) => {
 };
 
 export const updateBlock = (block) => {
-  console.log('Update block called');
-  console.log(block);
   return {
     type: UPDATE_BLOCK,
     payload: block,
